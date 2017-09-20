@@ -1,0 +1,13 @@
+
+{{ 'instafeed.min.js' | asset_url | script_tag }}
+        
+       <script type="text/javascript">
+         jQuery.noConflict();
+      var userFeed = new Instafeed({
+        get: 'user',
+        userId: '1367538524',
+        accessToken: '1367538524.6dd8897.af58ae17a1d141088c55f3702b396adc',
+        limit: '6',
+      });
+      userFeed.run();        
+    </script>

@@ -1,0 +1,158 @@
+
+<div class="instagram-feed-custom">
+  <div class="wrapper">
+
+{% assign tesColumns = 5 %}
+  {% assign instafeed_img = '{{image}}' %}
+{% assign instafeed_link = '{{link}}' %}
+{{ 'owl.theme.css' | asset_url | stylesheet_tag }}
+	{{ 'owl.carousel.css' | asset_url | stylesheet_tag }}
+
+{{ 'owl.carousel.js' | asset_url | script_tag }}
+{{ 'instafeed.min.js' | asset_url | script_tag }}
+  
+  
+       
+
+  <div class="title"><h3>Follow #satchiandfriends on Instagram</h3></div>
+  
+  <p class="insta-icon-section"><span class="icon icon-instagram" aria-hidden="true"></span>Tag your photos using #satchiandfriends on Instagram for a chance to be featured on our site.</p>
+  
+  
+  
+  
+  <style>
+    
+   .insta-button a span {
+  background: #de1b1b none repeat scroll 0 0;
+  border: 2px solid #a90b0b;
+  color: #fff;
+  font-family: Montserrat;
+  font-size: 15px;
+  font-weight: 700;
+  height: 36px;
+  letter-spacing: 0.05em;
+  line-height: 34px;
+  padding: 7px 25px;
+  text-transform: uppercase;
+} 
+
+        
+   .insta-button a span:hover{
+  background: #fff;
+  border: 2px solid #000;
+  color: #000;
+ 
+} 
+
+    
+    
+    #owl-demo .item{
+      
+      padding: 30px 0px;
+      margin: 10px;
+      color: #FFF;
+      -webkit-border-radius: 3px;
+      -moz-border-radius: 3px;
+      border-radius: 3px;
+      text-align: center;
+    }
+
+
+    
+    .icon.icon-instagram {
+  margin-right: 10px;
+}
+
+    	 .title > h3 {
+  color: #000;
+  font-family: Montserrat;
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  margin-bottom: 15px;
+  text-align: center;
+}
+    
+    .insta-icon-section {
+  color: #2d2d2d;
+  font-family: Roboto;
+  font-weight: bold;
+  letter-spacing: 0.02em;
+  margin-bottom: 30px;
+  margin-top: 0;
+  padding-top: 0;
+  text-align: center;
+}
+   
+    
+    .owl-item img {
+  width: 187px;
+}
+   .owl-pagination {
+  display: none;
+}
+   
+  </style>
+
+
+
+ 
+			<div id="velaInstagram" class="owl-carousel  owl-theme"></div>
+      	
+
+
+
+  <script type="text/javascript">
+	(function($){
+	    var feed = new Instafeed({
+			clientId: '5560903863',
+			 get: 'user',
+		
+			userId: '5560903863',
+			 accessToken: '5560903863.1677ed0.43520305161e4b29a465138b10d84f4f',
+			target: 'velaInstagram',
+			limit: '12',
+          	
+			before: function() {},
+	        after: function() {
+        		console.log('HiHi');
+                $('#velaInstagram').owlCarousel({
+                   navigation : true,
+                items : 5, //10 items above 1000px browser width
+      itemsDesktop : [1000,5], //5 items between 1000px and 901px
+      itemsDesktopSmall : [900,3], // betweem 900px and 601px
+      itemsTablet: [600,2], //2 items between 600 and 0;
+      itemsMobile : false // itemsMobile disabled - inherit from itemsTablet option
+                  
+                  
+                  
+                });
+        	},
+	        success: function() {
+            	
+            },
+	        error: function() {console.log('HiHi11');}
+		});
+		feed.run();
+  		
+	})(jQuery);
+</script>
+ 
+
+  
+  
+  
+  
+ 
+  <div class="insta-button">
+    <a href="https://www.instagram.com/satchiandfriends/"><span>View Gallery</span></a>
+  </div>
+  
+</div>
+
+
+</div>
+
+ 
+ 

@@ -1,0 +1,57 @@
+
+
+
+<div id="instafeed" class="instafeed">
+  
+</div>
+<script src="http://matthewelsom.com/assets/js/libs/instafeed.min.js"></script>
+<script>
+var feed = new Instafeed({
+    get: 'user',
+    userId: 5560903863,
+    accessToken: '5560903863.1677ed0.43520305161e4b29a465138b10d84f4f',
+    template: '<div><a href="{{link}}"><img src="{{image}}" /></a></div>',
+    target: 'instafeed',
+    after: function() {
+
+        $('#instafeed').slick({
+            slidesToShow: 3
+        });
+
+    }
+});
+feed.run();
+ 
+</script>
+
+
+
+<style>
+
+$lg: 580px;
+
+#instafeed {
+  width: 100%;
+  
+  a {
+    display: block;
+    float: left;
+    position: relative;
+    width: 50%;
+    
+    @include media($lg) {
+      width: 25%
+    }
+    
+    img {
+      display: block;
+      width: 100%;
+      height: 100%;
+    }
+  }
+}
+
+</style>
+
+
+

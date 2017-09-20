@@ -1,0 +1,102 @@
+
+<div class="product-slider"> 
+ 
+{{ 'jquery.catslider.js' | asset_url | script_tag }}
+
+{{ 'modernizr.custom.63321.js' | asset_url | script_tag }}
+  {{ 'style.css' | asset_url | stylesheet_tag }}
+
+			
+			<div class="main">
+              
+             <div class="wrapper"> 
+              <hr>
+              </div>
+                <h2 class="heading-product-slider">Shop</h2>
+              
+				<div id="mi-slider" class="mi-slider">
+					
+                   {% for block in section.blocks %} 
+                  
+                  <ul>
+						
+                    
+                     {% for product in collections[block.settings.collection-select].products limit: 4 %}  
+                    
+                      <li> <img src="{{ product.featured_image | product_img_url: 'medium' }}" alt="{{ product.title | escape  }}" />    
+  <a class="shop-now" href="{{ product.url }}">{{ product.title | escape  }}</a>                            
+  </li>  
+              {% endfor %}
+                    
+                    
+                    
+					</ul>
+					                  
+                   {% endfor %}
+                  
+                  
+					<nav>
+						
+                      
+                       {% for block in section.blocks %}                       
+                                           
+                      <a href="#"> {{ block.settings.collection-select }} </a>                       
+                      
+                      
+                    {% endfor %}
+                      
+                      
+					</nav>
+				</div>
+			</div>
+		
+		
+		<script>          
+       
+          (function(){
+   jQuery( '#mi-slider' ).catslider();
+    })();          
+			
+		</script>
+   
+   
+</div>
+
+
+{% schema %}
+  {
+    "name": "Slider of product",
+    "class": "slider-section-products",
+    "max_blocks": 5,
+ 
+ "presets": [
+      {
+        "name": "Product Slider",
+        "category": "Collections",
+        "blocks" : [
+          {
+            "type": "collection"
+          }
+        ]
+      }
+    ],
+
+
+    "blocks" : [
+      {
+        "type": "collection",
+        "name": "Collection",
+        "settings": [
+          {
+            "id": "collection-select",
+            "type": "collection",
+            "label": "Collection"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}
+
+
+
