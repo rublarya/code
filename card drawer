@@ -1310,8 +1310,10 @@
       jQuery( ".slide-menu-cart-new-drawer" ).on( "click", function() {
         jQuery('#new-drawer-cart').toggleClass('new-drawer-open');
         jQuery('#new-drawer-overlay').toggleClass('new-drawer-open');
+        updateDrawerCart();
       });
 
+                      
       function updateDrawerCart(){
 
         $.ajax({
@@ -1342,7 +1344,7 @@ for (i = 0; i < arrme.length; i++) {
   const results = people.filter(element => {
   return element.id === arrme[i];   
 });
- // console.log(results);
+  //console.log(results);
  find_discount += results['0'].compare_at_price-results['0'].price+" "; 
 } 
 
@@ -1354,16 +1356,20 @@ var arr = to_array_q(quality);
    check_q = arr.map(Number);
 
 <!--------------------discount--------->
+
             var discount = find_discount.trim();
 to_array_d = function (str) {
      return str.trim().split(" ");
 };
 var arr1 = to_array_d(discount);
+
    check_d = arr1.map(Number);
+const newArr = check_d.map(num => num < 0  ? 0 : num);
+              
    let multArray = [];
 
-      for (let i = 0; i < Math.min(check_q.length, check_d.length); i++) {
-         multArray[i] = check_q[i] * check_d[i];
+      for (let i = 0; i < Math.min(check_q.length, newArr.length); i++) {
+         multArray[i] = check_q[i] * newArr[i];
       }   
               
 console.log(multArray);
